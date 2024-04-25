@@ -1,0 +1,57 @@
+/* 
+©2024 令和さくら高等学院
+©2024 reiwa-sakura, one person Aoyama programming team.
+*/
+html, body {
+  overflow: hidden;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
+}
+#calendar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.fc-header-toolbar {
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.menu-copyright {
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  color: #C0C0C0;
+  font-size: 86%;
+}
+.addcalendar {
+  position: fixed;
+  top: 0px;
+  text-align: center;
+  align-items: center;
+}
+.button {
+  display: inline-block;
+  background-color: #f29c97;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-right: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.button:hover {
+  background-color: #f5bdba;
+  border-color: #bbb;
+}
+.button:active {
+  background-color: #8fc31f;
+  border-color: #999;
+}

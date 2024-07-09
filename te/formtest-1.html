@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Googleフォーム送信後の編集リンク取得</title>
+</head>
+<body>
+    <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfrWu0DcapdWY16l0FO8D_OOyahc4dvlXU4ywPNfdQnboB66w/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+        <input type="text" name="entry.1757499198" required>
+        <button type="submit">送信</button>
+        <p id="message"></p>
+    </form>
+    <script>let submitted = false;</script>
+    <iframe
+        name="hidden_iframe"
+        id="hidden_iframe"
+        style="display: none"
+        onload="if(submitted) { handleResponse(); }"
+    ></iframe>
+    <script type="text/javascript">
+        function handleResponse() {
+            const iframe = document.getElementById('hidden_iframe');
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            const editLink = extractEditLink(iframeDocument.body.innerHTML);
+            if (editLink) {
+                document.getElementById("message").innerText = encodeURIComponent(editLink);
+            }
+        }
+
+        function extractEditLink(html) {
+            const editLinkRegex = /https:\/\/docs\.google\.com\/forms\/d\/e\/[a-zA-Z0-9_-]+\/viewform\?edit2=[a-zA-Z0-9_-]+/;
+            const match = html.match(editLinkRegex);
+            return match ? match[0] : null;
+        }
+    </script>
+</body>
+</html>
